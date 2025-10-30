@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Produk</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .category-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #4facfe;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 10px;
+        }
+
+        .product-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .product-name {
+            flex: 1;
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: #00f2fe;
+        }
+
+        .contact-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #4facfe;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(90deg, #4facfe, #00f2fe);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(90deg, #25D366, #128C7E);
+        }
+
+        .btn-group {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .btn-channel {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>DAFTAR PRODUK</h1>
+            <p class="subtitle">Harga terbaik dengan kualitas premium</p>
+        </header>
+
+        <div class="products-grid">
+            <!-- Canva -->
+            <div class="product-card">
+                <h3 class="category-title">CANVA</h3>
+                <div class="product-item">
+                    <span class="product-name">1 bulan designer</span>
+                    <span class="product-price">2k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1 bulan member</span>
+                    <span class="product-price">2k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">Lifetime</span>
+                    <span class="product-price">3k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">Member 1 tahun</span>
+                    <span class="product-price">4k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1 bulan owner</span>
+                    <span class="product-price">5k</span>
+                </div>
+            </div>
+
+            <!-- Ibis Paint -->
+            <div class="product-card">
+                <h3 class="category-title">IBIS PAINT</h3>
+                <div class="product-item">
+                    <span class="product-name">Android 1 tahun</span>
+                    <span class="product-price">12k</span>
+                </div>
+            </div>
+
+            <!-- Capcut -->
+            <div class="product-card">
+                <h3 class="category-title">CAPCUT</h3>
+                <div class="product-item">
+                    <span class="product-name">7 hari privat head</span>
+                    <span class="product-price">4k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1 bulan sharing</span>
+                    <span class="product-price">5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1 bulan privat</span>
+                    <span class="product-price">7k</span>
+                </div>
+            </div>
+
+            <!-- VSCO -->
+            <div class="product-card">
+                <h3 class="category-title">VSCO</h3>
+                <div class="product-item">
+                    <span class="product-name">VSCO Plus Android/iOS 1 Tahun</span>
+                    <span class="product-price">7k</span>
+                </div>
+            </div>
+
+            <!-- Telegram -->
+            <div class="product-card">
+                <h3 class="category-title">TELEGRAM</h3>
+                <div class="product-item">
+                    <span class="product-name">Telegram Via Login 1 Bulan</span>
+                    <span class="product-price">58k</span>
+                </div>
+            </div>
+
+            <!-- Disney -->
+            <div class="product-card">
+                <h3 class="category-title">DISNEY</h3>
+                <div class="product-item">
+                    <span class="product-name">Disney 1 Bulan Sharing</span>
+                    <span class="product-price">10k</span>
+                </div>
+            </div>
+
+            <!-- Fizzo Novel -->
+            <div class="product-card">
+                <h3 class="category-title">FIZZO NOVEL</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Sharing</span>
+                    <span class="product-price">4k</span>
+                </div>
+            </div>
+
+            <!-- Apple Music -->
+            <div class="product-card">
+                <h3 class="category-title">APPLE MUSIC</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Invite</span>
+                    <span class="product-price">6k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Head</span>
+                    <span class="product-price">8.5k</span>
+                </div>
+            </div>
+
+            <!-- Spotify -->
+            <div class="product-card">
+                <h3 class="category-title">SPOTIFY</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Indplan</span>
+                    <span class="product-price">10k</span>
+                </div>
+            </div>
+
+            <!-- Vidio -->
+            <div class="product-card">
+                <h3 class="category-title">VIDIO</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Platinum</span>
+                    <span class="product-price">17k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Privat</span>
+                    <span class="product-price">30k</span>
+                </div>
+            </div>
+
+            <!-- Remini -->
+            <div class="product-card">
+                <h3 class="category-title">REMINI</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Tahun Android</span>
+                    <span class="product-price">7k</span>
+                </div>
+            </div>
+
+            <!-- HBO -->
+            <div class="product-card">
+                <h3 class="category-title">HBO</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Sharing</span>
+                    <span class="product-price">17k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Privat</span>
+                    <span class="product-price">73k</span>
+                </div>
+            </div>
+
+            <!-- Wetv -->
+            <div class="product-card">
+                <h3 class="category-title">WETV</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Sharing 8u</span>
+                    <span class="product-price">6k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Sharing 5u</span>
+                    <span class="product-price">7.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Privat</span>
+                    <span class="product-price">30k</span>
+                </div>
+            </div>
+
+            <!-- AM -->
+            <div class="product-card">
+                <h3 class="category-title">AM</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Tahun Privat</span>
+                    <span class="product-price">2k</span>
+                </div>
+            </div>
+
+            <!-- Netflix -->
+            <div class="product-card">
+                <h3 class="category-title">NETFLIX</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan 1p2u</span>
+                    <span class="product-price">14k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan 1p1u</span>
+                    <span class="product-price">19k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">Semi Privat</span>
+                    <span class="product-price">27k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">Antilimit</span>
+                    <span class="product-price">34k</span>
+                </div>
+            </div>
+
+            <!-- Wibuku -->
+            <div class="product-card">
+                <h3 class="category-title">WIBUKU</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Sharing</span>
+                    <span class="product-price">5.5k</span>
+                </div>
+            </div>
+
+            <!-- ChatGPT -->
+            <div class="product-card">
+                <h3 class="category-title">CHATGPT</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Sharing</span>
+                    <span class="product-price">7.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Privat</span>
+                    <span class="product-price">57k</span>
+                </div>
+            </div>
+
+            <!-- Prime -->
+            <div class="product-card">
+                <h3 class="category-title">PRIME</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Privat</span>
+                    <span class="product-price">10k</span>
+                </div>
+            </div>
+
+            <!-- YouTube -->
+            <div class="product-card">
+                <h3 class="category-title">YOUTUBE</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Famplan</span>
+                    <span class="product-price">3k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Head</span>
+                    <span class="product-price">6.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Indplan</span>
+                    <span class="product-price">6.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">2 Bulan Indplan</span>
+                    <span class="product-price">7.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">3 Bulan Indplan</span>
+                    <span class="product-price">9.5k</span>
+                </div>
+            </div>
+
+            <!-- Iqiyi -->
+            <div class="product-card">
+                <h3 class="category-title">IQIYI</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Standar</span>
+                    <span class="product-price">4k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Premium</span>
+                    <span class="product-price">5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1 Tahun Premium</span>
+                    <span class="product-price">10k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Privat Standar</span>
+                    <span class="product-price">28k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Privat Premium</span>
+                    <span class="product-price">38k</span>
+                </div>
+            </div>
+
+            <!-- Loklok -->
+            <div class="product-card">
+                <h3 class="category-title">LOKLOK</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Standar</span>
+                    <span class="product-price">17k</span>
+                </div>
+            </div>
+
+            <!-- Gagaoolala -->
+            <div class="product-card">
+                <h3 class="category-title">GAGAAOOLALA</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Sharing</span>
+                    <span class="product-price">5k</span>
+                </div>
+            </div>
+
+            <!-- RCTI -->
+            <div class="product-card">
+                <h3 class="category-title">RCTI</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Privat</span>
+                    <span class="product-price">32k</span>
+                </div>
+            </div>
+
+            <!-- Bstation -->
+            <div class="product-card">
+                <h3 class="category-title">BSTATION</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Sharing</span>
+                    <span class="product-price">4k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Privat</span>
+                    <span class="product-price">30k</span>
+                </div>
+            </div>
+
+            <!-- Wattpad -->
+            <div class="product-card">
+                <h3 class="category-title">WATTPAD</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Sharing</span>
+                    <span class="product-price">5k</span>
+                </div>
+            </div>
+
+            <!-- Youku -->
+            <div class="product-card">
+                <h3 class="category-title">YOUKU</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Sharing</span>
+                    <span class="product-price">4k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Privat</span>
+                    <span class="product-price">24k</span>
+                </div>
+            </div>
+
+            <!-- Zoom -->
+            <div class="product-card">
+                <h3 class="category-title">ZOOM</h3>
+                <div class="product-item">
+                    <span class="product-name">14 Hari Privat</span>
+                    <span class="product-price">5k</span>
+                </div>
+            </div>
+
+            <!-- Lightroom -->
+            <div class="product-card">
+                <h3 class="category-title">LIGHTROOM</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Tahun All Device</span>
+                    <span class="product-price">9k</span>
+                </div>
+            </div>
+
+            <!-- Mango TV -->
+            <div class="product-card">
+                <h3 class="category-title">MANGO TV</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Sharing</span>
+                    <span class="product-price">5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Privat</span>
+                    <span class="product-price">77k</span>
+                </div>
+            </div>
+
+            <!-- Getcontact -->
+            <div class="product-card">
+                <h3 class="category-title">GETCONTACT</h3>
+                <div class="product-item">
+        <span class="product-name">1 Bulan</span>
+                    <span class="product-price">7k</span>
+                </div>
+            </div>
+
+            <!-- Viki -->
+            <div class="product-card">
+                <h3 class="category-title">VIKI</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Sharing</span>
+                    <span class="product-price">8k</span>
+                </div>
+            </div>
+
+            <!-- Dazzcam -->
+            <div class="product-card">
+                <h3 class="category-title">DAZZCAM</h3>
+                <div class="product-item">
+                    <span class="product-name">Lifetime</span>
+                    <span class="product-price">27k</span>
+                </div>
+            </div>
+
+            <!-- Picsart -->
+            <div class="product-card">
+                <h3 class="category-title">PICSART</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Sharing</span>
+                    <span class="product-price">4k</span>
+                </div>
+            </div>
+
+            <!-- Scribd -->
+            <div class="product-card">
+                <h3 class="category-title">SCRIBD</h3>
+                <div class="product-item">
+                    <span class="product-name">1 Bulan Sharing</span>
+                    <span class="product-price">3k</span>
+                </div>
+            </div>
+
+            <!-- NBA Infinite -->
+            <div class="product-card">
+                <h3 class="category-title">NBA INFINITE</h3>
+                <div class="product-item">
+                    <span class="product-name">100 Ic</span>
+                    <span class="product-price">16k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">200 Ic</span>
+                    <span class="product-price">29k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">500 Ic</span>
+                    <span class="product-price">72k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1000 Ic</span>
+                    <span class="product-price">142k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">2000 Ic</span>
+                    <span class="product-price">282k</span>
+                </div>
+            </div>
+
+            <!-- Eleven -->
+            <div class="product-card">
+                <h3 class="category-title">ELEVEN</h3>
+                <div class="product-item">
+                    <span class="product-name">14 Token</span>
+                    <span class="product-price">29k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">37 Token</span>
+                    <span class="product-price">72k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">80 Token</span>
+                    <span class="product-price">142k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">176 Token</span>
+                    <span class="product-price">282k</span>
+                </div>
+            </div>
+
+            <!-- Diamond ML -->
+            <div class="product-card">
+                <h3 class="category-title">DIAMOND ML</h3>
+                <div class="product-item">
+                    <span class="product-name">44 dm</span>
+                    <span class="product-price">13.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">59 dm</span>
+                    <span class="product-price">18.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">71 dm</span>
+                    <span class="product-price">22k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">85 dm</span>
+                    <span class="product-price">25.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">97 dm</span>
+                    <span class="product-price">28.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">113 dm</span>
+                    <span class="product-price">33.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">128 dm</span>
+                    <span class="product-price">37k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">144 dm</span>
+                    <span class="product-price">42.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">170 dm</span>
+                    <span class="product-price">49k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">257 dm</span>
+                    <span class="product-price">73.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">284 dm</span>
+                    <span class="product-price">79k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">301 dm</span>
+                    <span class="product-price">84k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">427 dm</span>
+                    <span class="product-price">130k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">512 dm</span>
+                    <span class="product-price">153k</span>
+                </div>
+            </div>
+
+            <!-- Diamond FF -->
+            <div class="product-card">
+                <h3 class="category-title">DIAMOND FF</h3>
+                <div class="product-item">
+                    <span class="product-name">80 dm</span>
+                    <span class="product-price">11k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">100 dm</span>
+                    <span class="product-price">14k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">120 dm</span>
+                    <span class="product-price">15.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">140 dm</span>
+                    <span class="product-price">19k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">150 dm</span>
+                    <span class="product-price">20k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">190 dm</span>
+                    <span class="product-price">25.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">200 dm</span>
+                    <span class="product-price">26.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">210 dm</span>
+                    <span class="product-price">27k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">280 dm</span>
+                    <span class="product-price">38k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">300 dm</span>
+                    <span class="product-price">40k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">375 dm</span>
+                    <span class="product-price">48k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">405 dm</span>
+                    <span class="product-price">50.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">425 dm</span>
+                    <span class="product-price">53k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">510 dm</span>
+                    <span class="product-price">66k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">545 dm</span>
+                    <span class="product-price">68.5k</span>
+                </div>
+            </div>
+
+            <!-- PUBG -->
+            <div class="product-card">
+                <h3 class="category-title">PUBG</h3>
+                <div class="product-item">
+                    <span class="product-name">300 + 25 UC (Indonesia)</span>
+                    <span class="product-price">78.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">600 + 60 UC (Indonesia)</span>
+                    <span class="product-price">157k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1500 + 300 UC (Indonesia)</span>
+                    <span class="product-price">387k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">60 UC (Global)</span>
+                    <span class="product-price">17.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">300 + 25 UC (Global)</span>
+                    <span class="product-price">78k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">600 + 60 UC (Global)</span>
+                    <span class="product-price">157k</span>
+                </div>
+            </div>
+
+            <!-- Football Master 2 -->
+            <div class="product-card">
+                <h3 class="category-title">FOOTBALL MASTER 2</h3>
+                <div class="product-item">
+                    <span class="product-name">18 fmp</span>
+                    <span class="product-price">4.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">95 fmp</span>
+                    <span class="product-price">18k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">191 fmp</span>
+                    <span class="product-price">34k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">382 fmp</span>
+                    <span class="product-price">67k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">972 fmp</span>
+                    <span class="product-price">165.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1944 fmp</span>
+                    <span class="product-price">314k</span>
+                </div>
+            </div>
+
+            <!-- Robux -->
+            <div class="product-card">
+                <h3 class="category-title">ROBUX</h3>
+                <div class="product-item">
+                    <span class="product-name">80 rbx</span>
+                    <span class="product-price">15.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">160 rbx</span>
+                    <span class="product-price">32.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">240 rbx</span>
+                    <span class="product-price">50.5k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">320 rbx</span>
+                    <span class="product-price">62k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">400 rbx</span>
+                    <span class="product-price">73k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">500 rbx</span>
+                    <span class="product-price">80k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">660 rbx</span>
+                    <span class="product-price">110k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">740 rbx</span>
+                    <span class="product-price">125k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">800 rbx</span>
+                    <span class="product-price">147k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1000 rbx</span>
+                    <span class="product-price">156k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1700 rbx</span>
+                    <span class="product-price">293k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">2000 rbx</span>
+                    <span class="product-price">310k</span>
+                </div>
+            </div>
+
+            <!-- eFootball -->
+            <div class="product-card">
+                <h3 class="category-title">EFOOTBALL</h3>
+                <div class="product-item">
+                    <span class="product-name">550 Coin (Android)</span>
+                    <span class="product-price">82k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">750 Coin (Android)</span>
+                    <span class="product-price">112k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1040 Coin (Android)</span>
+                    <span class="product-price">147k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">2130 Coin (Android)</span>
+                    <span class="product-price">297k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">130 Coin (iOS)</span>
+                    <span class="product-price">16k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">300 Coin (iOS)</span>
+                    <span class="product-price">44k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">550 Coin (iOS)</span>
+                    <span class="product-price">72k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">750 Coin (iOS)</span>
+                    <span class="product-price">97k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1040 Coin (iOS)</span>
+                    <span class="product-price">142k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1590 Coin (iOS)</span>
+                    <span class="product-price">192k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">2130 Coin (iOS)</span>
+                    <span class="product-price">282k</span>
+                </div>
+            </div>
+
+            <!-- Super Sus -->
+            <div class="product-card">
+                <h3 class="category-title">SUPER SUS</h3>
+                <div class="product-item">
+                    <span class="product-name">100 Golden Star</span>
+                    <span class="product-price">13k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">310 Golden Star</span>
+                    <span class="product-price">34k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">1060 Golden Star</span>
+                    <span class="product-price">113k</span>
+                </div>
+                <div class="product-item">
+                    <span class="product-name">2180 Golden Star</span>
+                    <span class="product-price">221k</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h2 class="contact-title">HUBUNGI KAMI</h2>
+            <p>Untuk pemesanan atau informasi lebih lanjut, silakan hubungi kami melalui:</p>
+            <div class="buttons">
+                <a href="https://wa.me/62882019564054" class="btn btn-whatsapp" target="_blank">WhatsApp</a>
+                <a href="https://chat.whatsapp.com/CLVppbGlZxx6TXReGxhERT?mode=wwt" class="btn btn-group" target="_blank">Grup Reseller</a>
+                <a href="https://whatsapp.com/channel/0029Vb7DHQ5HLHQgtHdnq53g" class="btn btn-channel" target="_blank">Saluran WhatsApp</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Daftar Produk. Semua harga dapat berubah sewaktu-waktu.</p>
+        </footer>
+    </div>
+</body>
+</html>
